@@ -4,6 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Promocraft | Marketing & Development Solutions</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -123,6 +134,12 @@
       .btn-outline:hover {
         background: var(--primary);
         color: var(--secondary);
+      }
+
+      .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none !important;
       }
 
       /* Header & Navigation */
@@ -598,6 +615,33 @@
         box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
       }
 
+      /* Status Message */
+      .status-message {
+        margin-top: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        font-weight: 500;
+      }
+
+      .status-message.success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+
+      .status-message.error {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+
+      .status-message.info {
+        background-color: #d1ecf1;
+        color: #0c5460;
+        border: 1px solid #bee5eb;
+      }
+
       /* Footer */
       footer {
         background: var(--primary);
@@ -1041,20 +1085,25 @@
     <section class="contact" id="contact">
       <div class="container">
         <h2 class="section-title">Get In Touch</h2>
-        <form class="contact-form">
+        <form class="contact-form" id="contactForm">
           <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" required />
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" name="name" required />
           </div>
 
           <div class="form-group">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" required />
+            <label for="email">Your Email *</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 1234567890" />
           </div>
 
           <div class="form-group">
             <label for="service">Service Interested In</label>
-            <select id="service">
+            <select id="service" name="service">
               <option value="">Select a service</option>
               <option value="webdev">Web Development</option>
               <option value="video">Video Editing</option>
@@ -1066,11 +1115,12 @@
           </div>
 
           <div class="form-group">
-            <label for="message">Your Message</label>
-            <textarea id="message" required></textarea>
+            <label for="message">Your Message *</label>
+            <textarea id="message" name="message" required></textarea>
           </div>
 
-          <button type="submit" class="btn">Send Message</button>
+          <button type="submit" class="btn" id="submitBtn">Send Message</button>
+          <div id="statusMsg" class="status-message"></div>
         </form>
       </div>
     </section>
@@ -1130,6 +1180,88 @@
     </footer>
 
     <script>
+      // Initialize EmailJS
+      (function() {
+        emailjs.init("lrW3JHNHD3g3Yal8K");
+        console.log("EmailJS initialized");
+      })();
+
+      // Form submission handler
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('submitBtn');
+        const statusMsg = document.getElementById('statusMsg');
+        
+        // Disable submit button and show loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        statusMsg.textContent = 'Sending your message...';
+        statusMsg.className = 'status-message info';
+        
+        // Get form data
+        const formData = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value || 'Not provided',
+          service: document.getElementById('service').value || 'Not specified',
+          message: document.getElementById('message').value
+        };
+        
+        console.log('Sending form data:', formData);
+        
+        // 1. Send email to business (Contact Form Submission template)
+        emailjs.send('service_b5ina3g', 'template_2720vxi', {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+          to_email: 'promocraftofficial@gmail.com',
+          reply_to: formData.email,
+          date: new Date().toLocaleString()
+        })
+        .then(function(response) {
+          console.log('SUCCESS! Message sent to business', response.status, response.text);
+          
+          // 2. Send auto-reply to user (Auto Reply template)
+          return emailjs.send('service_b5ina3g', 'template_t2o0w7l', {
+            to_name: formData.name,
+            to_email: formData.email,
+            service: formData.service,
+            date: new Date().toLocaleString()
+          });
+        })
+        .then(function(response) {
+          console.log('SUCCESS! Auto-reply sent to user', response.status, response.text);
+          
+          // Show success message
+          statusMsg.textContent = 'Thank you! Your message has been sent successfully. Check your email for confirmation.';
+          statusMsg.className = 'status-message success';
+          
+          // Reset form
+          document.getElementById('contactForm').reset();
+        })
+        .catch(function(error) {
+          console.error('FAILED...', error);
+          
+          // Show appropriate error message
+          let errorMessage = 'Sorry, there was an error sending your message. Please try again or contact us directly at promocraftofficial@gmail.com';
+          
+          if (error.text && error.text.includes('recipients address is empty')) {
+            errorMessage = 'Email configuration error. Please email us directly at promocraftofficial@gmail.com';
+          }
+          
+          statusMsg.textContent = errorMessage;
+          statusMsg.className = 'status-message error';
+        })
+        .finally(function() {
+          // Re-enable submit button
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+        });
+      });
+
       // Navigation toggle
       const hamburger = document.getElementById("hamburger");
       const navMenu = document.getElementById("nav-menu");
