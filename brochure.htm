@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promocraft Digital | Premium Brochure</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FFC52E;
+            --secondary: #FFFFFF;
+            --text-dark: #1F1F1F;
+            --text-light: #6B7280;
+            --light-gray: #F4F4F4;
+            --medium-gray: #E5E7EB;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f0f2f5;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .brochure-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .page {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 80px;
+        }
+
+        /* PAGE 1 - COVER PAGE */
+        .cover-page {
+            background: var(--secondary);
+            padding: 80px;
+        }
+
+        .yellow-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30%;
+            height: 100%;
+            background: var(--primary);
+            z-index: 1;
+        }
+
+        .decorative-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--primary);
+            opacity: 0.1;
+        }
+
+        .circle-1 {
+            width: 120px;
+            height: 120px;
+            top: 15%;
+            right: 10%;
+        }
+
+        .circle-2 {
+            width: 80px;
+            height: 80px;
+            bottom: 20%;
+            left: 40%;
+        }
+
+        .half-oval {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            border-radius: 100px 100px 0 0;
+            background: var(--primary);
+            opacity: 0.05;
+            bottom: 10%;
+            right: 15%;
+        }
+
+        .thin-line {
+            position: absolute;
+            height: 2px;
+            width: 150px;
+            background: var(--primary);
+            opacity: 0.2;
+            top: 30%;
+            left: 45%;
+            transform: rotate(45deg);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 4;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 4;
+            max-width: 50%;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .hero-content p {
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            max-width: 80%;
+        }
+
+        /* Team illustration */
+        .team-illustration {
+            position: absolute;
+            right: 15%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 400px;
+            height: 300px;
+            background: var(--light-gray);
+            border-radius: 20px;
+            z-index: 3;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .footer-icons {
+            position: absolute;
+            bottom: 40px;
+            left: 80px;
+            display: flex;
+            gap: 25px;
+            z-index: 4;
+        }
+
+        .footer-icon {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .footer-icon i {
+            color: var(--primary);
+        }
+
+        /* PAGE 2 - WHY CHOOSE US */
+        .why-choose-page {
+            background: var(--light-gray);
+            position: relative;
+        }
+
+        .yellow-highlight {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.1;
+            top: 20%;
+            left: 15%;
+            z-index: 1;
+        }
+
+        .section-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .features-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 70%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .feature-content p {
+            color: var(--text-light);
+        }
+
+        .vertical-divider {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 1px;
+            height: 100%;
+            background: var(--medium-gray);
+            z-index: 1;
+        }
+
+        .decorative-dots {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            bottom: 10%;
+            right: 10%;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .decorative-dots:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(var(--primary) 2px, transparent 2px);
+            background-size: 10px 10px;
+        }
+
+        /* PAGE 3 - ABOUT US */
+        .about-page {
+            background: var(--secondary);
+            position: relative;
+        }
+
+        .yellow-stripe {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8px;
+            height: 100%;
+            background: var(--primary);
+            z-index: 1;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .illustration-container {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .marketing-illustration {
+            width: 400px;
+            height: 400px;
+            background: var(--light-gray);
+            border-radius: 20px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .faded-circle {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        /* PAGE 4 - SERVICES - UPDATED HEIGHT */
+        .services-page {
+            background: var(--light-gray);
+            position: relative;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card {
+            background: var(--secondary);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--primary);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .abstract-shape {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.05;
+            bottom: -80px;
+            right: -80px;
+            z-index: 1;
+        }
+
+        .thin-shadow {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--medium-gray);
+            z-index: 1;
+        }
+
+        /* PAGE 5 - BENEFITS */
+        .benefits-page {
+            background: var(--secondary);
+            position: relative;
+        }
+
+        .benefits-content {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+            position: relative;
+            z-index: 2;
+        }
+
+        .benefits-list {
+            flex: 1;
+            margin-top: 30px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .benefit-item i {
+            color: var(--primary);
+            width: 25px;
+            font-size: 1.2rem;
+        }
+
+        .benefit-item span {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+
+        .benefits-image {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .benefits-illustration {
+            width: 400px;
+            height: 400px;
+            background: var(--light-gray);
+            border-radius: 20px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .benefits-faded-circle {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        /* PAGE 6 - FLEXIBLE PLANS */
+        .plans-page {
+            background: var(--light-gray);
+            position: relative;
+        }
+
+        .plans-content {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .plans-text {
+            flex: 1;
+        }
+
+        .plans-list {
+            margin-top: 30px;
+        }
+
+        .plan-feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .plan-feature i {
+            color: var(--primary);
+            width: 25px;
+            font-size: 1.2rem;
+        }
+
+        .plan-feature span {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+
+        .plans-image {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .plans-illustration {
+            width: 400px;
+            height: 400px;
+            background: var(--light-gray);
+            border-radius: 20px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .plans-faded-circle {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        /* PAGE 7 - START YOUR BUSINESS */
+        .start-business-page {
+            background: var(--secondary);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .start-business-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .start-business-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+
+        .start-business-content p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .business-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .step {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .step h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .start-business-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .shape-1 {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.05;
+            top: 10%;
+            left: 10%;
+        }
+
+        .shape-2 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.05;
+            bottom: 20%;
+            right: 15%;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(255, 197, 46, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 197, 46, 0.4);
+        }
+
+        .btn-large {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .page {
+                padding: 60px 40px;
+            }
+            
+            .hero-content {
+                max-width: 60%;
+            }
+            
+            .team-illustration {
+                width: 300px;
+                height: 225px;
+                right: 5%;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .marketing-illustration,
+            .benefits-illustration,
+            .plans-illustration {
+                width: 350px;
+                height: 350px;
+            }
+            
+            .benefits-content,
+            .plans-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page {
+                padding: 40px 20px;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+            }
+            
+            .team-illustration {
+                display: none;
+            }
+            
+            .yellow-bar {
+                width: 100%;
+                height: 30%;
+                top: 0;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .business-steps {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .marketing-illustration,
+            .benefits-illustration,
+            .plans-illustration {
+                width: 300px;
+                height: 300px;
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="brochure-container">
+        <!-- PAGE 1 - COVER PAGE -->
+        <section class="page cover-page">
+            <!-- LAYER 1: Full white base background -->
+            <!-- LAYER 2: Vertical yellow accent bar -->
+            <div class="yellow-bar"></div>
+            
+            <!-- LAYER 3: Decorative shapes -->
+            <div class="decorative-shapes">
+                <div class="circle circle-1"></div>
+                <div class="circle circle-2"></div>
+                <div class="half-oval"></div>
+                <div class="thin-line"></div>
+            </div>
+            
+            <!-- LAYER 4: Main hero text -->
+            <div class="logo">Promocraft Digital</div>
+            <div class="hero-content">
+                <h1>Grow Your Brand Online</h1>
+                <p>We provide cutting-edge digital marketing solutions, web development, and content creation to help your business thrive in the digital landscape.</p>
+                <a href="#contact" class="btn">Get Started</a>
+            </div>
+            
+            <!-- LAYER 5: Team illustration -->
+            <div class="team-illustration"></div>
+            
+            <!-- LAYER 6: Small footer icons -->
+            <div class="footer-icons">
+                <div class="footer-icon">
+                    <i class="fas fa-phone"></i>
+                    <span>+1 (555) 123-4567</span>
+                </div>
+                <div class="footer-icon">
+                    <i class="fas fa-envelope"></i>
+                    <span>hello@promocraft.com</span>
+                </div>
+                <div class="footer-icon">
+                    <i class="fas fa-globe"></i>
+                    <span>www.promocraft.com</span>
+                </div>
+                <div class="footer-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>New York, NY</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- PAGE 2 - WHY CHOOSE US -->
+        <section class="page why-choose-page">
+            <!-- LAYER 1: Light-grey background -->
+            <!-- LAYER 2: Soft yellow circular highlight -->
+            <div class="yellow-highlight"></div>
+            
+            <!-- LAYER 3: Section heading -->
+            <h2 class="section-heading">Why Choose Us?</h2>
+            
+            <!-- LAYER 4: Feature items -->
+            <div class="features-container">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Data-Driven Strategies</h3>
+                        <p>We base all our decisions on comprehensive data analysis to ensure maximum ROI for your campaigns.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Expert Team</h3>
+                        <p>Our team consists of seasoned professionals with diverse expertise across all digital marketing channels.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Fast Implementation</h3>
+                        <p>We deliver quick results without compromising on quality or strategic depth.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Proven Results</h3>
+                        <p>Our track record speaks for itself with numerous successful campaigns across various industries.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- LAYER 5: Vertical divider line -->
+            <div class="vertical-divider"></div>
+            
+            <!-- LAYER 6: Minimal decorative dots -->
+            <div class="decorative-dots"></div>
+        </section>
+        
+        <!-- PAGE 3 - ABOUT US -->
+        <section class="page about-page">
+            <!-- LAYER 1: Full white base -->
+            <!-- LAYER 2: Yellow accent stripe -->
+            <div class="yellow-stripe"></div>
+            
+            <!-- LAYER 3: Section heading -->
+            <h2 class="section-heading">About Us</h2>
+            
+            <!-- LAYER 4: Paragraph text -->
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Promocraft Digital is a team of passionate marketers, developers, and creatives dedicated to helping businesses succeed in the digital world.</p>
+                    <p>With years of experience across various industries, we understand what it takes to create compelling digital experiences that convert visitors into customers.</p>
+                    <p>Our approach combines data-driven strategies with creative storytelling to deliver results that matter to your business.</p>
+                    <p>We specialize in web development, branding, personalized growth strategies, social media management, e-commerce solutions, and app development.</p>
+                </div>
+                
+                <!-- LAYER 5: Side illustration -->
+                <div class="illustration-container">
+                    <!-- LAYER 6: Light faded yellow circle -->
+                    <div class="faded-circle"></div>
+                    <div class="marketing-illustration"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- PAGE 4 - SERVICES - UPDATED HEIGHT -->
+        <section class="page services-page">
+            <!-- LAYER 1: Light-grey background -->
+            <!-- LAYER 2: Section heading -->
+            <h2 class="section-heading">Our Services</h2>
+            
+            <!-- LAYER 3: Grid of service cards -->
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Website Development</h3>
+                    <p>Custom website development with responsive design, optimized for performance and user experience.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Branding</h3>
+                    <p>We enhance your brand's identity through strategic design, messaging, and cohesive branding across all platforms.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Personalized Growth</h3>
+                    <p>One-on-one coaching and strategies to help you grow your personal brand or business.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hashtag"></i>
+                    </div>
+                    <h3>Social Media Handling</h3>
+                    <p>Complete social media management to build your online presence and engage with your audience.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-commerce Business</h3>
+                    <p>We handle store setup, product listings, optimization, and daily operations to boost sales.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>App Development</h3>
+                    <p>Custom mobile application development for iOS and Android platforms with seamless user experiences.</p>
+                </div>
+            </div>
+            
+            <!-- LAYER 4: Large abstract shape -->
+            <div class="abstract-shape"></div>
+            
+            <!-- LAYER 5: Thin dividing line -->
+            <div class="thin-shadow"></div>
+        </section>
+        
+        <!-- PAGE 5 - BENEFITS -->
+        <section class="page benefits-page">
+            <!-- LAYER 1: White background -->
+            <!-- LAYER 2: Section heading -->
+            <h2 class="section-heading">What You'll Gain</h2>
+            
+            <!-- LAYER 3: Content with image -->
+            <div class="benefits-content">
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <i class="fas fa-check"></i>
+                        <span>Increased brand visibility and recognition</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check"></i>
+                        <span>Higher quality leads and improved conversion rates</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check"></i>
+                        <span>Data-driven marketing decisions for better ROI</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check"></i>
+                        <span>Enhanced customer engagement and loyalty</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check"></i>
+                        <span>Competitive advantage in your industry</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check"></i>
+                        <span>Scalable strategies that grow with your business</span>
+                    </div>
+                </div>
+                
+                <div class="benefits-image">
+                    <div class="benefits-faded-circle"></div>
+                    <div class="benefits-illustration"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- PAGE 6 - FLEXIBLE PLANS -->
+        <section class="page plans-page">
+            <!-- LAYER 1: Light-grey background -->
+            <!-- LAYER 2: Section heading -->
+            <h2 class="section-heading">Flexible Plans</h2>
+            
+            <!-- LAYER 3: Content with image -->
+            <div class="plans-content">
+                <div class="plans-image">
+                    <div class="plans-faded-circle"></div>
+                    <div class="plans-illustration"></div>
+                </div>
+                
+                <div class="plans-text">
+                    <div class="plans-list">
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Monthly performance reports</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Custom strategy development</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>Dedicated account manager</span>
+                        </div>
+                        <div class="plan-feature">
+                            <i class="fas fa-check"></i>
+                            <span>24/7 campaign monitoring</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- PAGE 7 - START YOUR BUSINESS -->
+        <section class="page start-business-page">
+            <!-- LAYER 1: White background -->
+            <!-- LAYER 2: Decorative shapes -->
+            <div class="start-business-shapes">
+                <div class="shape-1"></div>
+                <div class="shape-2"></div>
+            </div>
+            
+            <!-- LAYER 3: Main content -->
+            <div class="start-business-content">
+                <h2>Let's Start Your Digital Transformation</h2>
+                <p>Ready to take your business to the next level? Our team of experts is here to guide you through every step of your digital journey, from strategy to execution and beyond.</p>
+                <a href="#contact" class="btn btn-large">Start Your Project Today</a>
+                
+                <!-- LAYER 4: Business steps -->
+                <div class="business-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>Consultation</h4>
+                        <p>We'll discuss your goals and create a customized strategy</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>Implementation</h4>
+                        <p>Our team brings your digital vision to life</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>Growth</h4>
+                        <p>We optimize and scale your digital presence</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
